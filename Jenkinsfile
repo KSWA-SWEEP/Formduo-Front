@@ -9,24 +9,16 @@ pipeline {
         dockerImageName = 'frontend-msa'
         serviceName = 'service-front'
         gitCredentialId = '6261fc8c-759c-4d26-b6ff-29666b2a5625'
-        gitSrcUrl = 'git@github.com:KSWA-SWEEP/Formduo-Front.git'
+        gitSrcUrl = 'git@github.com:KSWA-SWEEP/Form-Duo.git'
         gitManifestUrl = 'git@github.com:KSWA-SWEEP/k8s-manifest.git'
     }
 
      stages {
-
-        stage('Start') {
-            agent any
-            steps {
-                slackSend (channel: '#jenkins', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-            }
-        }
-
         stage('Checkout Application Git Branch') {
             steps {
                 git credentialsId: '6261fc8c-759c-4d26-b6ff-29666b2a5625',
-                    url: 'git@github.com:KSWA-SWEEP/Formduo-Front.git',
-                    branch: 'main'
+                    url: 'git@github.com:KSWA-SWEEP/Form-Duo.git',
+                    branch: 'msa-front'
             }
             post {
                     failure {
@@ -56,10 +48,8 @@ pipeline {
                     sh "docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
                     sh "docker build . -t ${dockerHubRegistry}:latest"
                 }
-
                 post {
                         failure {
-                          slackSend (channel: '#jenkins', color: '#FF0000', message: "Docker image build Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                           echo 'Docker image build failure !'
                         }
                         success {
@@ -105,7 +95,7 @@ pipeline {
                 sh "git commit -m '[UPDATE] config-service ${currentBuild.number} image versioning'"
                 sshagent(credentials: ["${gitCredentialId}"]) {
                     sh "git remote set-url origin ${gitManifestUrl}"
-                    sh "git push -u origin main"
+                    sh "git push -u origin msa-front"
                 }
             }
             post {
