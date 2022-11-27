@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    tools { nodejs "nodejs" }
+
     environment {
         dockerHubRegistry = 'jongleur6596/frontend-msa'
         dockerHubRegistryCredential = 'jongleur6596'
