@@ -1,0 +1,78 @@
+{
+  "svyRespContents": [
+    {
+      "qId": 1,
+      "qType": "objective",
+      "ansVal": [
+        {
+          "qContentId": 3,
+          "resp": ""
+        }
+      ]
+    },
+    {
+      "qId": 2,
+      "qType": "subjective",
+      "ansVal": [
+        {
+          "qContentId": 1,
+          "resp": "두번째 질문은 주관식입니다."
+        }
+      ]
+    },
+    {
+      "qId": 3,
+      "qType": "objective",
+      "ansVal": [
+        {
+          "qContentId": 1,
+          "resp": ""
+        },
+        {
+          "qContentId": 4,
+          "resp": ""
+        }
+      ]
+    },
+    {
+      "qId": 4,
+      "qType": "rating",
+      "ansVal": [
+        {
+          "qContentId": 1,
+          "resp": "3"
+        }
+      ]
+    },
+    {
+      "qId": 5,
+      "qType": "date",
+      "ansVal": [
+        {
+          "qContentId": 1,
+          "resp": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "qId": 6,
+      "qType": "dropbox",
+      "ansVal": [
+        {
+          "qContentId": 2,
+          "resp": ""
+        }
+      ]
+    },
+    {
+      "qId": 7,
+      "qType": "file",
+      "ansVal": [
+        {
+          "qContentId": 1,
+          "resp": ""
+        }
+      ]
+    }
+  ]
+}
