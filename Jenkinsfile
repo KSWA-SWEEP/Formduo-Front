@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+      tools { nodejs '16.10.0'}
     environment {
         dockerHubRegistry = 'jongleur6596/frontend-msa'
         dockerHubRegistryCredential = 'jongleur6596'
@@ -10,7 +10,7 @@ pipeline {
         gitSrcUrl = 'git@github.com:KSWA-SWEEP/Form-Duo.git'
         gitManifestUrl = 'git@github.com:KSWA-SWEEP/k8s-manifest.git'
     }
-
+    
      stages {
         stage('Checkout Application Git Branch') {
             steps {
