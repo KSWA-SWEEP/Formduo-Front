@@ -27,6 +27,21 @@ pipeline {
                     }
             }
         }
+         
+         stage('NPM Build') {
+             steps {
+                sh 'npm install'
+             }
+             post {
+                     failure {
+                      echo 'npm install failure !'
+                     }
+                     success {
+                      echo 'npm install success !'
+                     }
+             }
+         }
+         
         stage('Build') {
             steps {
                 sh 'npm install'
