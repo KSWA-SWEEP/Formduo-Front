@@ -33,9 +33,6 @@ pipeline {
         stage('Build') {
             steps {
                 nodejs(nodeJSInstallationName: 'npm') {
-                    sh 'ls /var/jenkins_home/workspace/frontend-service-deploy'
-                    sh 'ls /var/jenkins_home/workspace/frontend-service-deploy/frontend'
-                    sh 'pwd'
                     sh 'npm install'
                     sh 'npm run build'
                 }
