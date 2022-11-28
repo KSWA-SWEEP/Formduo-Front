@@ -28,24 +28,12 @@ pipeline {
             }
         }
          
-         stage('NPM Build') {
-             steps {
-                sh 'npm install'
-             }
-             post {
-                     failure {
-                      echo 'npm install failure !'
-                     }
-                     success {
-                      echo 'npm install success !'
-                     }
-             }
-         }
-         
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
             }
             post {
                     failure {
