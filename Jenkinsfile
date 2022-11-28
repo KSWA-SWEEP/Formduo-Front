@@ -9,7 +9,7 @@ pipeline {
         dockerImageName = 'frontend-msa'
         serviceName = 'service-front'
         gitCredentialId = '6261fc8c-759c-4d26-b6ff-29666b2a5625'
-        gitSrcUrl = 'git@github.com:KSWA-SWEEP/Form-Duo.git'
+        gitSrcUrl = 'git@github.com:KSWA-SWEEP/Formduo-Front.git'
         gitManifestUrl = 'git@github.com:KSWA-SWEEP/k8s-manifest.git'
     }
     
@@ -17,8 +17,8 @@ pipeline {
         stage('Checkout Application Git Branch') {
             steps {
                 git credentialsId: '6261fc8c-759c-4d26-b6ff-29666b2a5625',
-                    url: 'git@github.com:KSWA-SWEEP/Form-Duo.git',
-                    branch: 'msa-front'
+                    url: 'git@github.com:KSWA-SWEEP/Formduo-Front.git',
+                    branch: 'main'
             }
             post {
                     failure {
