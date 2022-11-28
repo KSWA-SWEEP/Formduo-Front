@@ -27,10 +27,10 @@ pipeline {
                     }
             }
         }
-        stage("Build") {
+        stage('Build') {
             steps {
-                sh "npm install"
-                sh "npm run build"
+                sh 'npm install'
+                sh 'npm run build'
             }
             post {
                     failure {
@@ -43,8 +43,8 @@ pipeline {
         }
         stage('Docker Image Build') {
                 steps {
-                    sh "docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
-                    sh "docker build . -t ${dockerHubRegistry}:latest"
+                    sh 'docker build . -t ${dockerHubRegistry}:${currentBuild.number}'
+                    sh 'docker build . -t ${dockerHubRegistry}:latest'
                 }
                 post {
                         failure {
