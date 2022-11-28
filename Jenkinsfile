@@ -32,8 +32,10 @@ pipeline {
          
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                nodejs(nodeJSInstallationName: 'nodejs') {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
             }
             post {
                     failure {
