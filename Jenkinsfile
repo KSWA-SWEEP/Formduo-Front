@@ -32,7 +32,7 @@ pipeline {
          
         stage('Build') {
             steps {
-                nodejs(nodeJSInstallationName: 'nodejs') {
+                nodejs(nodeJSInstallationName: 'npm') {
                     sh 'npm install'
                     sh 'npm run build'
                 }
