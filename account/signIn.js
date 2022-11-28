@@ -107,6 +107,11 @@ const SignIn =()=> {
             });
 
             const data = await response.json();
+
+            // 로그인 성공 확인
+            console.log("/api/auth/login response");
+            console.log(data);
+
             let jsonData = JSON.parse(data);
 
             //recoil에 accessToken 저장

@@ -41,13 +41,13 @@ export default async function handler(req, res) {
                 
                 res.status(200).json(JSON.stringify(response.data));
             } catch (err) {
-                console.log(">> err");
-                console.log(err);
+                console.log("## error : ")
+                console.log(err)
                 res.status(500).end();
             }
         } else {
-            console.log(">> err");
-            console.log(err);
+            console.log("## error : ")
+            console.log(err)
             res.status(500).end();
         }
     } else {
