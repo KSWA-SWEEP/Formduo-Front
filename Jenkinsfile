@@ -40,23 +40,6 @@ pipeline {
             }
         }
 
-        stage('NPM Build') {
-                steps {
-                    sh 'cd /var/jenkins_home/workspace/frontend-service-deploy/'
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-                post {
-                        failure {
-                          slackSend (channel: '#jenkins', color: '#FF0000', message: "Maven Jar Build Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-                          echo 'NPM build failure !'
-                        }
-                        success {
-                          echo 'NPM build success !'
-                        }
-                }
-        }
-
         stage('Docker Image Build') {
                 steps {
                     sh 'cd /var/jenkins_home/workspace/frontend-service-deploy/'
