@@ -16,7 +16,87 @@ pipeline {
 
 
     stages {
+        stage('Start') {
+            agent any
+            steps {
+                slackSend (channel: '#jenkins', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+            }
+        }
 
+        stage('Checkout Application Git Branch') {
+            steps {
+                git credentialsId: "${gitCredentialId}",
+                    url: "${gitSrcUrl}",
+                    branch: 'main'
+            }
+            post {
+                    failure {
+                      slackSend (channel: '#jenkins', color: '#FF0000', message: "Repository Clone Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                      echo 'Repository clone failure !'
+                    }
+                    success {
+                      echo 'Repository clone success !'
+                    }
+            }
+        }
+
+        stage('NPM Build Test') {
+                steps {
+                    sh 'cd /var/jenkins_home/workspace/frontend-service-deploy/'
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+                post {
+                        failure {
+                          slackSend (channel: '#jenkins', color: '#FF0000', message: "NPM Build Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                          echo 'NPM build failure !'
+                        }
+                        success {
+                          echo 'NPM build success !'
+                        }
+                }
+        }
+
+        stage('Docker Image Build') {
+                steps {
+                    sh 'cd /var/jenkins_home/workspace/frontend-service-deploy/'
+                    sh "docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
+                    sh "docker build . -t ${dockerHubRegistry}:latest"
+                }
+                post {
+                        failure {
+                          slackSend (channel: '#jenkins', color: '#FF0000', message: "Docker Image Build Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                          echo 'Docker image build failure !'
+                        }
+                        success {
+                          echo 'Docker image build success !'
+                        }
+                }
+        }
+
+        stage('Docker Image Push') {
+                steps {
+                    withDockerRegistry([ credentialsId: dockerHubRegistryCredential, url: "" ]) {
+                                        sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
+                                        sh "docker push ${dockerHubRegistry}:latest"
+
+                                        sleep 10 /* Wait uploading */
+                                    }
+                }
+                post {
+                        failure {
+                          slackSend (channel: '#jenkins', color: '#FF0000', message: "Docker Image Push Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                          echo 'Docker Image Push failure !'
+                          sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                          sh "docker rmi ${dockerHubRegistry}:latest"
+                        }
+                        success {
+                          echo 'Docker image push success !'
+                          sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                          sh "docker rmi ${dockerHubRegistry}:latest"
+                        }
+                }
+        }
 
         stage('K8S Manifest Update') {
                 steps {
