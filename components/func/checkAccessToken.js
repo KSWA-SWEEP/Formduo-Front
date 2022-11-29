@@ -1,4 +1,5 @@
 import Cookies from "cookies";
+import { getCookie } from "cookies-next";
 import Router, { useRouter } from "next/router";
 
 async function checkAccessToken(token) {
@@ -20,8 +21,7 @@ async function checkAccessToken(token) {
     // console.log(now < getCookie("expTime"))
     
     // Get a cookie
-    const cookies = new Cookies(req, res)
-    let refreshToken = cookies.get('refresh_token')
+    let refreshToken = getCookie('refresh_token')
     console.log('@@@ checkAccessToken')
     console.log('@@@ refresh token :')
     console.log('refresh_token')
