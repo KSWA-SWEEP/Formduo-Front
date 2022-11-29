@@ -40,6 +40,23 @@ pipeline {
             }
         }
 
+        stage('NPM Build Test') {
+                steps {
+                    sh 'cd /var/jenkins_home/workspace/frontend-service-deploy/'
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+                post {
+                        failure {
+                          slackSend (channel: '#jenkins', color: '#FF0000', message: "NPM Build Failure !: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                          echo 'NPM build failure !'
+                        }
+                        success {
+                          echo 'NPM build success !'
+                        }
+                }
+        }
+
         stage('Docker Image Build') {
                 steps {
                     sh 'cd /var/jenkins_home/workspace/frontend-service-deploy/'
@@ -87,6 +104,7 @@ pipeline {
                         url: "${gitManifestUrl}",
                         branch: 'main'
 
+                    sh "/var/jenkins_home/workspace/frontend-service-deploy/service-front"
                     sh "sed -i 's/${dockerImageName}:.*\$/${dockerImageName}:${currentBuild.number}/g' ./${dockerImageName}/deployment.yaml"
                     sh "git add ./${dockerImageName}/deployment.yaml"
                     sh "git config --global user.email 'panggeunho@gmail.com'"
