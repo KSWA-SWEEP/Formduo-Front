@@ -24,7 +24,7 @@ pipeline {
                         url: "${gitManifestUrl}",
                         branch: 'main'
 
-                    sh "cd /var/jenkins_home/workspace/frontend-service-deploy/service-front"
+                    sh "cd /var/jenkins_home/workspace/frontend-service-deploy"
                     sh "sed -i 's/${dockerImageName}:.*\$/${dockerImageName}:${currentBuild.number}/g' ./${dockerImageName}/deployment.yaml"
                     sh "git add ./${dockerImageName}/deployment.yaml"
                     sh "git config --global user.email 'panggeunho@gmail.com'"
