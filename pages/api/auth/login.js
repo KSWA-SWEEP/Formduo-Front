@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
         const setCookie = response.headers['set-cookie']
 
-        let header = [''];
+        let header = [];
         for (const i in setCookie) {
             var split = setCookie[i].split('=');
             header.push(`${split[0]}=${split[1]}; Path=/; SameSite=None; HttpOnly`)
