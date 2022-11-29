@@ -1,3 +1,4 @@
+import Cookies from "cookies";
 import Router, { useRouter } from "next/router";
 
 async function checkAccessToken(token) {
@@ -18,6 +19,13 @@ async function checkAccessToken(token) {
     // console.log("now : " + now + "  exp : " + getCookie("expTime").split('.')[0])
     // console.log(now < getCookie("expTime"))
     
+    // Get a cookie
+    const cookies = new Cookies(req, res)
+    let refreshToken = cookies.get('refresh_token')
+    console.log('@@@ checkAccessToken')
+    console.log('@@@ refresh token :')
+    console.log('refresh_token')
+
     //token 값이 비어있거나 만료 시간이 지났으면, reissue
     if(token == "" || token == "undefined" || now > expTime){
         const response = await fetch('/api/auth/reissue', {

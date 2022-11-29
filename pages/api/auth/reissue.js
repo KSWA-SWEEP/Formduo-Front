@@ -12,6 +12,9 @@ export default async function handler(req, res) {
     // Get a cookie
     const cookies = new Cookies(req, res)
     let refreshToken = cookies.get('refresh_token')
+    console.log('@@@ reissue')
+    console.log('@@@ refresh token :')
+    console.log('refresh_token')
 
     // 현재 시간
     const today = new Date()
