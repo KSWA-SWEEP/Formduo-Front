@@ -5,7 +5,6 @@ WORKDIR /usr/src/app
 RUN npm install -g pm2
 
 COPY ./package*.json ./
-COPY yarn.lock ./
 #RUN npm install --network-timeout 600000
 #RUN npm install
 
