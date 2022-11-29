@@ -83,7 +83,9 @@ export default function Header () {
             'Content-type': 'application/json',
         }
       })
-    }).then(() => {
+    })
+    .then((response) => response.json())
+    .then(() => {
       setAcctoken("");
       sessionStorage.setItem("isLogin","false")
       sessionStorage.setItem("expTime","")
