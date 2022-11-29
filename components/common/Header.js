@@ -84,7 +84,6 @@ export default function Header () {
         }
       })
     })
-    .then((response) => response.json())
     .then(() => {
       setAcctoken("");
       sessionStorage.setItem("isLogin","false")
