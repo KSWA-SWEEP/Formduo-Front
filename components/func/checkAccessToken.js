@@ -1,5 +1,5 @@
 import Cookies from "cookies";
-import { getCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import Router, { useRouter } from "next/router";
 
 async function checkAccessToken(token) {
@@ -51,6 +51,9 @@ async function checkAccessToken(token) {
                 sessionStorage.setItem("isLogin","false")
                 sessionStorage.setItem("expTime","")
                 Router.push('/');
+                setCookie("refresh_token", "")
+                setCookie("expTime", "expTime")
+                setCookie("isLogin", "false")
             });
         } else {
             const data = await response.json();
