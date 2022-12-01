@@ -58,6 +58,7 @@ async function checkAccessToken(token) {
 
             // 만료 시간 sessionStorage에 저장
             sessionStorage.setItem("expTime",jsonData.expTime);
+            setCookie("refresh_token", jsonData.refreshToken, { httpOnly : true });
 
             return jsonData.accessToken;
         }
