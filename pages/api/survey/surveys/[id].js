@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         const { type } = query;
         
         try {
-            const response = await axios.get(url+"?type="+type, {
+            const response = await axios.get(url, {
                 headers: {
                     withCredentials: true,
                     'Content-Type': "application/json"
