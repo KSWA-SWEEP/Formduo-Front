@@ -32,15 +32,26 @@ export default async function handler(req, res) {
             // spring gateway 사용시
             const url = process.env.NEXT_PUBLIC_API_URL + "/auth/api/v1/auth/reissue"
 
+            let header = [];
             try {
                 const data = new Object();
                 data.refreshToken = refreshToken;
                 const response = await axios.post(url, data);
                 
+                header.push(`refresh_token=${response.data.refreshToken}; Path=/; HttpOnly`)
+                header.push(`expTime=${response.data.expTime}; Path=/; HttpOnly`)
+
+                res.setHeader('Set-Cookie', header)
                 res.status(200).json(JSON.stringify(response.data));
             } catch (err) {
                 console.log("## error : ")
                 console.log(err)
+
+                header.push(`refresh_token=; Path=/; HttpOnly`)
+                header.push(`expTime=expTime; Path=/; HttpOnly`)
+                header.push(`isLogin=false; Path=/; HttpOnly`)
+                
+                res.setHeader('Set-Cookie', header)
                 res.status(500).end();
             }
         } else {

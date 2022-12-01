@@ -48,9 +48,6 @@ async function checkAccessToken(token) {
                 sessionStorage.setItem("isLogin","false")
                 sessionStorage.setItem("expTime","")
                 Router.push('/');
-                setCookie("refresh_token", "")
-                setCookie("expTime", "expTime")
-                setCookie("isLogin", "false")
             });
         } else {
             const data = await response.json();
@@ -58,7 +55,6 @@ async function checkAccessToken(token) {
 
             // 만료 시간 sessionStorage에 저장
             sessionStorage.setItem("expTime",jsonData.expTime);
-            setCookie("refresh_token", jsonData.refreshToken, { httpOnly : true });
 
             return jsonData.accessToken;
         }
