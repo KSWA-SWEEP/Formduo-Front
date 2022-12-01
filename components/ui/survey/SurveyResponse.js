@@ -62,7 +62,7 @@ export default function SurveyResponse(props) {
             })
             .then((response) => response.json())
             .then((data) => {
-                let jsondata = JSON.parse(data)
+                let jsondata = data
                 setSvyContents(jsondata);
                 setSvyTitle(jsondata.svyTitle);
                 setSvyIntro(jsondata.svyIntro);
