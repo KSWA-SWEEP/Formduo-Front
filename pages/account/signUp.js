@@ -115,7 +115,7 @@ const SignUp = () =>{
     //이미 가입 된 메일인지 확인
     async function isMember(){
         const data = new Object();
-        console.log("userEmail : " + userEmail.current);
+        // console.log("userEmail : " + userEmail.current);
         // console.log("userPw : " + userPw.current);
         data.email = userEmail.current;
         try{
@@ -154,7 +154,7 @@ const SignUp = () =>{
         }
 
         //회원가입 api 호출
-        console.log("SignUp Request");
+        // console.log("SignUp Request");
         // const data = new Object();
         // // console.log("userName : " + userName.current);
         // // console.log("userEmail : " + userEmail.current);
@@ -177,8 +177,8 @@ const SignUp = () =>{
                 }
             });
             //check
-            console.log("Result : " + JSON.stringify(response));
-            console.log("User email : "+ response["email"]);
+            // console.log("Result : " + JSON.stringify(response));
+            // console.log("User email : "+ response["email"]);
             openModal();
             return <></>;
         }catch (e) {
@@ -207,7 +207,6 @@ const SignUp = () =>{
                 },"cPndipwNGrbp1LMBT").then(r  =>{});
             }else{
                 const result = JSON.parse(r).username
-                console.log("$$$ result : "+ result.length)
                 if(result){
                     // console.log("계정 존재")
                     openFailModal();

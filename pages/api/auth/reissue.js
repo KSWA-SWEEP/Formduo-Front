@@ -12,9 +12,6 @@ export default async function handler(req, res) {
     // Get a cookie
     const cookies = new Cookies(req, res)
     let refreshToken = cookies.get('refresh_token')
-    console.log('@@@ reissue')
-    console.log('@@@ refresh token :')
-    console.log('refresh_token')
 
     // 현재 시간
     const today = new Date()
@@ -38,8 +35,6 @@ export default async function handler(req, res) {
             try {
                 const data = new Object();
                 data.refreshToken = refreshToken;
-                console.log("===================")
-                console.log(data)
                 const response = await axios.post(url, data);
                 
                 res.status(200).json(JSON.stringify(response.data));

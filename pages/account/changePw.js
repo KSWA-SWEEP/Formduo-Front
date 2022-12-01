@@ -196,12 +196,9 @@ const ChangePw = () =>{
 
     const sendAuthMail =()=>{
         isMember().then(r =>{
-            console.log("Result : "+ r)
             if(JSON.parse(r) != ""){
                 const result = JSON.parse(r).username
-                console.log(result)
                 if(!result){
-                    // console.log("계정 없음")
                     openFailModal();
                 }else{
                     userName.current = result
@@ -216,7 +213,6 @@ const ChangePw = () =>{
                     },"cPndipwNGrbp1LMBT").then(r  =>{});
                 }
             }else{
-                // console.log("계정 없음")
                 openFailModal();
             }
         })

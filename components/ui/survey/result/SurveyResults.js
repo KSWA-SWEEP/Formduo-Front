@@ -27,7 +27,6 @@ export default function SurveyResults(props) {
         let data = { id, date }
 
         if (props.svyType == "basic") {
-            console.log("tmp" + JSON.stringify(tmp));
             tmp.map((ans) => {
                 let trash = ""
                 ans.ansVal.map(item => {

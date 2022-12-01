@@ -22,9 +22,6 @@ async function checkAccessToken(token) {
     
     // Get a cookie
     let refreshToken = getCookie('refresh_token')
-    console.log('@@@ checkAccessToken')
-    console.log('@@@ refresh token :')
-    console.log('refresh_token')
 
     //token 값이 비어있거나 만료 시간이 지났으면, reissue
     if(token == "" || token == "undefined" || now > expTime){
