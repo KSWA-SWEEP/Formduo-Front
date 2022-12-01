@@ -8,6 +8,8 @@ export default async function handler(req, res) {
 
     // spring gateway 사용시
     const url = process.env.NEXT_PUBLIC_API_URL + `/survey/api/v1/surveys/${id}`
+    // 설문 응답 페이지 들어가면 토큰 요구해서 따로 url 수정
+    const getUrl = process.env.NEXT_PUBLIC_API_URL + `/survey/api/v1/get-surveys/${id}`
 
     let data = new Object();
 
@@ -16,7 +18,7 @@ export default async function handler(req, res) {
         const { type } = query;
         
         try {
-            const response = await axios.get(url, {
+            const response = await axios.get(getUrl, {
                 headers: {
                     withCredentials: true,
                     'Content-Type': "application/json"
