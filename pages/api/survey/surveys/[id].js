@@ -51,7 +51,7 @@ export default async function handler(req, res) {
     else if (req.method === 'DELETE') {
         let token = req.headers.accesstoken;
         try {
-            const response = await axios.delete(url, data, {
+            const response = await axios.delete(url, {
                 headers: {
                     withCredentials: true,
                     'Content-Type': "application/json",

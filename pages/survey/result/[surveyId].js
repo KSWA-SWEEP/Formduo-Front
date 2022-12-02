@@ -59,7 +59,7 @@ const SurveyResult = () => {
             setAcctoken(r)
             try{
                 let resData = new Object();
-                const response = await fetch('/api/response/'+ surveyId, {
+                const response = await fetch('/api/response/all/'+ surveyId, {
                     method: 'GET',
                     headers: {
                         'Content-type': 'application/json',

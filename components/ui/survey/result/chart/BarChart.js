@@ -8,11 +8,15 @@ import { useRecoilState } from "recoil";
 import { accToken } from "../../../../../atoms/accToken";
 import { subjAnsState } from '../../../../../atoms/subjAns';
 import checkAccessToken from '../../../../func/checkAccessToken';
+import { useRouter } from 'next/router';
 
 export default function BarChart(props) {
     //Access Token
     const [acctoken, setAcctoken] = useRecoilState(accToken);
     const [subjAns, setSubjAns] = useRecoilState(subjAnsState);
+
+    const router = useRouter();
+    const { surveyId } = router.query;
 
     const svyCont = useRef(); // Question 정보
     let svyAnsval = {};
@@ -25,7 +29,8 @@ export default function BarChart(props) {
             setAcctoken(r)
             try{
                 let resData = new Object();
-                const response = await fetch('/api/survey/surveys/' + props.resContents[0].svyId, {
+                // const response = await fetch('/api/survey/surveys/' + props.resContents[0].svyId, {
+                const response = await fetch('/api/response/all/' + surveyId, {
                     method: 'GET',
                     headers: {
                         'Content-type': 'application/json',
