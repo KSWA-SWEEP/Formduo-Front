@@ -23,7 +23,7 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   return (
-    <div>
+    <>
       <Head>
         <title>폼듀</title>
         <meta name="naver-site-verification" content="42b5d378293c7ca1532d675450e41b442bc28f5d" />
@@ -36,6 +36,6 @@ export default function App({
                   </Layout>
           {/*</SessionProvider>*/}
       </RecoilRoot>
-    </div>
+    </>
   )
 }
