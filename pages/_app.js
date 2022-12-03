@@ -9,6 +9,7 @@ import {
     useRecoilValue,
 } from 'recoil';
 import {getCookie} from "cookies-next";
+import Head from 'next/head';
 
 axios.defaults.mode = "cors";
 axios.defaults.withCredentials = true;
@@ -22,6 +23,12 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   return (
+    <>
+      <Head>
+        <title>폼듀(Form Duo)</title>
+        <meta name="naver-site-verification" content="42b5d378293c7ca1532d675450e41b442bc28f5d" />
+        <meta name="google-site-verification" content="fZfLUCgFmi1qQTxTes7b93Bidrfrd2Doa8LZp5HqTZI" />
+      </Head>
       <RecoilRoot>
           {/*<SessionProvider session={session}>*/}
                   <Layout>
@@ -29,5 +36,6 @@ export default function App({
                   </Layout>
           {/*</SessionProvider>*/}
       </RecoilRoot>
+    </>
   )
 }
