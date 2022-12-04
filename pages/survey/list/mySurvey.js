@@ -1,8 +1,8 @@
 import PageTitle from "../../../components/ui/PageTitle";
 import SurveyGridList from "../../../components/ui/survey/SurveyGridList";
+import * as gtag from "../../../lib/gtag";
 
 const mySurvey = () => {
-
 
     return (
         <>

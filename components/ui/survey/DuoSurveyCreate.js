@@ -14,6 +14,7 @@ import Respond from "./input/Respond.js";
 import "react-datepicker/dist/react-datepicker.css";
 import checkAccessToken from "../../func/checkAccessToken.js";
 import {accToken} from "../../../atoms/accToken";
+import * as gtag from "../../../lib/gtag";
 
 
 const qTypes = [
@@ -137,8 +138,16 @@ export default function DuoSurveyCreate() {
 
         if (isSettingModalOpen) {
             closeSettingModal();
-            makeSvy(data).then(r => {});
+            makeSvy(data).then(r => {
+                gtag.event({
+                    action: '듀오설문 생성',
+                    category: '설문',
+                    label: '듀오설문 생성 완료',
+                })
+            });
         }
+
+
 
         return data;
     }

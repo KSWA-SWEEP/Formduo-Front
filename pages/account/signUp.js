@@ -7,6 +7,7 @@ import {Dialog, Transition} from "@headlessui/react";
 import {useState} from "react";
 
 import { init,send } from 'emailjs-com';
+import * as gtag from "../../lib/gtag";
 
 const SignUp = () =>{
     let [isOpen, setIsOpen] = useState(false)
@@ -179,6 +180,11 @@ const SignUp = () =>{
             //check
             // console.log("Result : " + JSON.stringify(response));
             // console.log("User email : "+ response["email"]);
+            gtag.event({
+                action: '회원가입',
+                category: '인증',
+                label: '회원가입 완료',
+            })
             openModal();
             return <></>;
         }catch (e) {

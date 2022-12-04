@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import {getCookie, setCookie} from "cookies-next";
 import {Dialog, Transition} from "@headlessui/react";
 import FindUserEmail from "../../components/ui/account/FindUserEmail";
+import * as gtag from "../../lib/gtag";
 
 const SignIn =()=> {
     const [acctoken, setAcctoken] = useRecoilState(accToken);
@@ -109,6 +110,11 @@ const SignIn =()=> {
             const data = await response.json();
             let jsonData = JSON.parse(data);
 
+            gtag.event({
+                action: '로그인',
+                category: '인증',
+                label: '로그인',
+            })
             //recoil에 accessToken 저장
             setAcctoken(jsonData.accessToken);
             

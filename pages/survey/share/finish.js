@@ -5,6 +5,7 @@ import { useRouter, withRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import LazyShow from "../../../components/common/LazyShow"
 import Loading from "../../../components/common/Loading";
+import * as gtag from "../../../lib/gtag";
 
 const Finish = (props) => {
     
@@ -12,7 +13,13 @@ const Finish = (props) => {
 
     useEffect(() => {
         setEndMessage(props.router.query.endMsg);
+        gtag.event({
+            action: '설문응답',
+            category: '설문',
+            label: '설문응답 완료',
+        })
     }, [props.router.query.endMsg]);
+
 
     return (
         <div>

@@ -5,6 +5,7 @@ import Piechart from "./PieChart";
 import {useRecoilState} from "recoil";
 import {accToken} from "../../../../atoms/accToken";
 import checkAccessToken from "../../../func/checkAccessToken";
+import * as gtag from "../../../../lib/gtag";
 
 export default function Conversation(props) {
     

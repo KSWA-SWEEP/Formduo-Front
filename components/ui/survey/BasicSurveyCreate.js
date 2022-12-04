@@ -16,6 +16,7 @@ import Respond from "./input/Respond.js";
 import "react-datepicker/dist/react-datepicker.css";
 import checkAccessToken from "../../func/checkAccessToken.js";
 import {accToken} from "../../../atoms/accToken";
+import * as gtag from "../../../lib/gtag";
 
 const qTypes = [
     { name: '객관식', comp: "Objective", contentYn: true },
@@ -158,7 +159,13 @@ export default function BasicSurveyCreate() {
 
         if (isSettingModalOpen) {
             closeSettingModal();
-            makeSvy(data).then(r => {});
+            makeSvy(data).then(r => {
+                gtag.event({
+                    action: '일반설문 생성',
+                    category: '설문',
+                    label: '일반설문 생성 완료',
+                })
+            });
         }
 
         return data;
