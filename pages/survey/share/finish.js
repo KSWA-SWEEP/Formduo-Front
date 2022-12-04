@@ -49,6 +49,9 @@ const Finish = (props) => {
                             </div>
                         </div>
                     </div>
+                    <script async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7767288335783243"
+                            crossOrigin="anonymous"></script>
                 </div>
             </LazyShow>
         </div>
