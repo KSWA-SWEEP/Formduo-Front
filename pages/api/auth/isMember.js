@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     // const url = process.env.NEXT_PUBLIC_API_URL + "/api/v1/auth/isMember"
 
     // spring gateway 사용시
-    const url = process.env.NEXT_PUBLIC_API_URL + "/auth/api/v1/auth/isMember"
+    const url = process.env.NEXT_PUBLIC_API_URL + "/auth/api/v1/auth/is-member"
 
     let data = new Object();
     data.email = req.body.email;
