@@ -146,7 +146,7 @@ const Qbox = ({show, onHide, setSvyContents, svyContents, questionId}) => {
                 .then((response) => response.json())
                 .then((data) => {
                     //데이터 가져오기
-                    qboxList.current = JSON.parse(data);
+                    qboxList.current = data;
                     qboxList.current.map((survey) =>{
                         if(survey.delYn == null && survey.name != "string" && survey.qtitle != ""){
                             survey.qId = survey.qid
