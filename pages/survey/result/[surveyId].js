@@ -98,9 +98,9 @@ const SurveyResult = () => {
                 <div className="px-10 mt-1 overflow-auto rounded-md max-h-30 focus:outline-none ">
                     <div className='flex justify-between'>
                         <div className='font-semibold'>설문 참여율</div>
-                        <div className='font-semibold'>{data.length} / {data[0].svyRespsMax}</div>
+                        <div className='font-semibold'>{data.svyRespCount} / {data.svyRespMax}</div>
                     </div>
-                    <Slider data={parseInt((data.length / data[0].svyRespsMax * 100).toString())} />
+                    <Slider data={parseInt((data.svyRespCount / data.svyRespMax * 100).toString())} />
                 </div>
                 <div className="max-w-2xl px-4 mx-60 py-8 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
                     <div className="mt-5 mb-7">
@@ -124,7 +124,7 @@ const SurveyResult = () => {
                             <Tab.Panels>
                                 <Tab.Panel>
                                     <br />
-                                    <SurveyResults svyType={surveyType} resPeople={data.length} maxResPeople={data[0].svyRespsMax} resContents={Object.values(data)} />
+                                    <SurveyResults svyType={surveyType} resPeople={data.length} maxResPeople={data.svyRespsMax} resContents={Object.values(data)} />
                                 </Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
@@ -138,9 +138,9 @@ const SurveyResult = () => {
                 <div className="px-10 mt-1 overflow-auto rounded-md max-h-30 focus:outline-none ">
                     <div className='flex justify-between'>
                         <div className='font-semibold'>설문 참여율</div>
-                        <div className='font-semibold'>{data.length} / {data[0].svyRespsMax}</div>
+                        <div className='font-semibold'>{data.svyRespCount} / {data.svyRespMax}</div>
                     </div>
-                    <Slider data={parseInt((data.length / data[0].svyRespsMax * 100).toString())} />
+                    <Slider data={parseInt((data.svyRespCount / data.svyRespMax * 100).toString())} />
                 </div>
                 <div className="max-w-2xl px-4 py-8 mx-auto sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
                     <div className="mt-5 mb-7">
@@ -166,14 +166,14 @@ const SurveyResult = () => {
                             <Tab.Panels>
                                 <Tab.Panel>
                                     {(surveyType === "basic") ?
-                                        <SurveyAnalysis resPeople={data.length} maxResPeople={data[0].svyRespsMax} resContents={Object.values(data)} />
+                                        <SurveyAnalysis resPeople={data.length} maxResPeople={data.svyRespsMax} resContents={Object.values(data)} />
                                         :
                                         <Conversation cvId = {router.query.svyId}/>
                                     }
                                 </Tab.Panel>
                                 <Tab.Panel>
                                     <br />
-                                    <SurveyResults svyType={surveyType} resPeople={data.length} maxResPeople={data[0].svyRespsMax} resContents={Object.values(data)} />
+                                    <SurveyResults svyType={surveyType} resPeople={data.length} maxResPeople={data.svyRespsMax} resContents={Object.values(data)} />
                                 </Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>

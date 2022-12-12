@@ -39,8 +39,7 @@ export default function BarChart(props) {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    svyCont.current = data.svyContent
-                }).then(()=>{
+                    svyCont.current = data.svyRespContent
                     setSvyAnsval()
                     setSubjAnsval()
                 }).then(() => {
@@ -81,28 +80,56 @@ export default function BarChart(props) {
     }
 
     function ansCount(){
-        props.resContents.map((resC)=>{
-            resC.svyRespContent.map((respCont)=>{
-                if(respCont.qType !== "Subjective"){
-                    respCont.ansVal.map((ans)=>{
-                        svyAnsval[respCont.qId].map((res, idx)=>{
+        // let res = Object.values(data)
+        let res = props.resContents
+
+        // console.log(res[4])
+        res[4].map((resC)=>{
+            // resC.svyRespContent.map((respCont)=>{
+                if(resC.qType !== "Subjective"){
+                    // console.log(resC)
+                    resC.ansVal.map((ans)=>{
+                        svyAnsval[resC.qId].map((res, idx)=>{
                             if(res.key === ans.resp){
                                 // console.log("Ana##respCont : " + svyAnsval[respCont.qId][idx].key + "   " + ans.resp + "    " + res.key)
-                                svyAnsval[respCont.qId][idx].value++;
+                                svyAnsval[resC.qId][idx].value++;
                             }
                         })
                     })
                 }
                 else {
                     // console.log("###### subjective answer")
-                    respCont.ansVal.map((ans) => {
+                    resC.ansVal.map((ans) => {
                         // console.log("## qId: " + respCont.qId + ", recentResp: " + ans.resp);
-                        subjAnsval[respCont.qId].unshift(ans.resp);
+                        subjAnsval[resC.qId].unshift(ans.resp);
                         // console.log("## AllResp: " + subjAnsval[respCont.qId]);     // TODO: qId별 최근 3개의 답변 출력하기
                     })
                 }
-            })
+            // })
         })
+        // let res = props.resContents
+        // res.map((resC)=>{
+        //     resC.svyRespContent.map((respCont)=>{
+        //         if(respCont.qType !== "Subjective"){
+        //             respCont.ansVal.map((ans)=>{
+        //                 svyAnsval[respCont.qId].map((res, idx)=>{
+        //                     if(res.key === ans.resp){
+        //                         // console.log("Ana##respCont : " + svyAnsval[respCont.qId][idx].key + "   " + ans.resp + "    " + res.key)
+        //                         svyAnsval[respCont.qId][idx].value++;
+        //                     }
+        //                 })
+        //             })
+        //         }
+        //         else {
+        //             // console.log("###### subjective answer")
+        //             respCont.ansVal.map((ans) => {
+        //                 // console.log("## qId: " + respCont.qId + ", recentResp: " + ans.resp);
+        //                 subjAnsval[respCont.qId].unshift(ans.resp);
+        //                 // console.log("## AllResp: " + subjAnsval[respCont.qId]);     // TODO: qId별 최근 3개의 답변 출력하기
+        //             })
+        //         }
+        //     })
+        // })
     }
 
     const anaData = useRef([])

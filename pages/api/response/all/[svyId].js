@@ -34,9 +34,11 @@ export default async function handler(req, res) {
             let svyResps = [];
             response.data.map((items, id) => {
                 items.svyRespContent.map((item, qId) => {
+                    svyResps.svyRespDt = items.svyRespDt
                     svyResps.push(item)
                 })
             })
+
 
             data.svyId = resp.data.id;
             data.svyRespMax = resp.data.svyRespMax;

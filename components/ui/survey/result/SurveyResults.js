@@ -39,13 +39,20 @@ export default function SurveyResults(props) {
         return data
     }
 
-    const rows = props.resContents.map((item) => createData(getNum(), item.svyRespDt, item.id, item.svyRespContent))
+    console.log("props")
+    console.log(props)
+
+    const rows = props.resContents[4].map((item) =>{
+            console.log(item)
+            createData(getNum(), item.svyRespDt, item.id, item.svyRespContent)
+
+        })
     const excelData = props.svyType !== "duo" ? props.resContents.map((item) => createExcelData(getExcelNum(), JSON.stringify(item.svyRespContent), item.svyRespDt)) : ""
     const excelHeader = () => {
         const temp = [{ label: "번호", key: "id" },
         { label: "응답시간", key: "date" },]
 
-        let svyRespContents = props.resContents[0].svyRespContent;
+        let svyRespContents = props.resContents[4];
         svyRespContents.map((id) => temp.push({ label: id.qId + "번 질문", key: id.qId.toString() }))
 
         return temp;
@@ -59,7 +66,7 @@ export default function SurveyResults(props) {
                 <br />
                 {props.svyType !== "duo" ? <>
                     <CSVLink
-                        className="inline-flex self-end my-2 px-3 py-2 ml-8 mr-7 text-sm font-normal text-white duration-200 border border-transparent rounded-md shadow-sm whitespace-nowrap bg-neutral-400 hover:bg-neutral-600 hover:scale-105"
+                        className="inline-flex self-end px-3 py-2 my-2 ml-8 text-sm font-normal text-white duration-200 border border-transparent rounded-md shadow-sm mr-7 whitespace-nowrap bg-neutral-400 hover:bg-neutral-600 hover:scale-105"
                         headers={excelHeader()} // header
                         data={excelData} // data
                         filename="설문결과"
