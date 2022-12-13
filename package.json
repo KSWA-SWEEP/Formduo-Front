@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "rimraf public/robots.txt public/sitemap*.xml & next build",
-    "postbuild": "next-sitemap --config sitemap.config.js",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
