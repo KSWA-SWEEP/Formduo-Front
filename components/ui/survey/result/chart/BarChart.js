@@ -29,8 +29,8 @@ export default function BarChart(props) {
             setAcctoken(r)
             try{
                 let resData = new Object();
-                // const response = await fetch('/api/survey/surveys/' + props.resContents[0].svyId, {
-                const response = await fetch('/api/response/all/' + surveyId, {
+                const response = await fetch('/api/survey/surveys/' + props.resContents[0].svyId, {
+                // const response = await fetch('/api/response/all/' + surveyId, {
                     method: 'GET',
                     headers: {
                         'Content-type': 'application/json',
