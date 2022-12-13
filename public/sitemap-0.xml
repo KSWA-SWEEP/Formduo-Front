@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://formduo.xyz</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/about/formduo</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/account/changePw</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/account/myPage</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/account/signIn</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/account/signUp</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/auth/singUp</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/sentry_sample_error</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/create/basic</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/create/duo</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/create/emotion</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/create/finish</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/list/mySurvey</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/preview/basic</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/preview/duo</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/preview/emotion</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/result/list</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/share</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/share/basic</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/share/finish</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://formduo.xyz/survey/tutorial</loc><lastmod>2022-12-13T12:58:45.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
