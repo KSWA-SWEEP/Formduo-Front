@@ -8,6 +8,7 @@ COPY ./package*.json ./
 #RUN npm install --network-timeout 600000
 #RUN npm install
 
+RUN npm install -D next-sitemap
 RUN npm install --production
 
 COPY . .
