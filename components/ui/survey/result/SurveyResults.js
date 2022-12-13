@@ -27,6 +27,7 @@ export default function SurveyResults(props) {
         let data = { id, date }
 
         if (props.svyType == "basic") {
+            console.log("tmp" + JSON.stringify(tmp));
             tmp.map((ans) => {
                 let trash = ""
                 ans.ansVal.map(item => {
@@ -39,20 +40,13 @@ export default function SurveyResults(props) {
         return data
     }
 
-    console.log("props")
-    console.log(props)
-
-    const rows = props.resContents[4].map((item) =>{
-            console.log(item)
-            createData(getNum(), item.svyRespDt, item.id, item.svyRespContent)
-
-        })
+    const rows = props.resContents.map((item) => createData(getNum(), item.svyRespDt, item.id, item.svyRespContent))
     const excelData = props.svyType !== "duo" ? props.resContents.map((item) => createExcelData(getExcelNum(), JSON.stringify(item.svyRespContent), item.svyRespDt)) : ""
     const excelHeader = () => {
         const temp = [{ label: "번호", key: "id" },
         { label: "응답시간", key: "date" },]
 
-        let svyRespContents = props.resContents[4];
+        let svyRespContents = props.resContents[0].svyRespContent;
         svyRespContents.map((id) => temp.push({ label: id.qId + "번 질문", key: id.qId.toString() }))
 
         return temp;

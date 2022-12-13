@@ -134,8 +134,6 @@ const Qbox = ({show, onHide, setSvyContents, svyContents, questionId}) => {
         let qbox =[];
         checkAccessToken(acctoken).then(async r=>{
             setAcctoken(r)
-
-            // Q-Box (자주 하는 질문)
             try{
                 let resData = new Object();
                 const response = await fetch('/api/survey/qbox', {
@@ -207,44 +205,6 @@ const Qbox = ({show, onHide, setSvyContents, svyContents, questionId}) => {
                 console.log("## error : ");
                 console.log(e);
             }
-
-            // 내가 했던 질문
-            try{
-                let resData = new Object();
-                const response = await fetch('/api/survey/surveys', {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'application/json',
-                        'accessToken' : r,
-                    }
-                })
-                .then((response) => response.json())
-                .then((data) => {
-                    //데이터 가져오기
-                    svyList.current = data;
-                    svyList.current.map((survey) =>{
-                        mySvy = mySvy.concat(survey.svyContent)
-                    })
-                }).then(r=>{
-                    //데이터 key값 설정
-                    mySvy.map((svy,idx) => {
-                        svy.key = idx;
-                        svy.qId = idx;
-                    })
-                }).then(r => {
-                    //내가 했던 질문 data Setting
-                    //check log
-                    // console.log("MySvy : "+ JSON.stringify(mySvy));
-                    // console.log("내가한질문 : " + JSON.stringify(sampleQsts.current.내가했던질문))
-                    sampleQsts.current.내가했던질문 = mySvy;
-                }).then(r=>{
-                    //데이터 설정 후 랜더링을 위해 useState 값 변경
-                    setMyData(true)
-                });
-            }catch(e){
-                console.log("## error : ");
-                console.log(e);
-            }
         })
     }
     //Qbox 질문 Setting function
@@ -254,8 +214,7 @@ const Qbox = ({show, onHide, setSvyContents, svyContents, questionId}) => {
 
     //Qbox 질문 가져오기
     useEffect(()=>{
-        // settingMyQuestion()
-        // settingQbox()
+        settingMyQuestion()
         settingQbox()
     },[])
 

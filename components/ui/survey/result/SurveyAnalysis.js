@@ -3,6 +3,7 @@ import SubjectiveChart from './chart/SubjectiveChart';
 import * as gtag from "../../../../lib/gtag";
 
 export default function SurveyAnalysis(props) {
+
     return (
         <div>
             <div className="overflow-auto bg-white rounded-md shadow-lg max-h-500 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
