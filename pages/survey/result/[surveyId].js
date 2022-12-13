@@ -80,7 +80,7 @@ const SurveyResult = () => {
 
     if (!surveyId) return <p> Loading ...</p>
     if (isLoading) return <p> Loading...</p>
-    if (!data || data.length === 0) return (
+    if (!data || data.svyRespCount === 0) return (
         <div>
             <div className="max-w-2xl px-4 py-8 mx-auto sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
 
@@ -102,7 +102,7 @@ const SurveyResult = () => {
                     </div>
                     <Slider data={parseInt((data.svyRespCount / data.svyRespMax * 100).toString())} />
                 </div>
-                <div className="max-w-2xl px-4 mx-60 py-8 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
+                <div className="max-w-2xl px-4 py-8 mx-60 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
                     <div className="mt-5 mb-7">
                         <Tab.Group>
                             <Tab.List className="flex p-1 space-x-1 bg-blue-900/5 rounded-xl">
@@ -124,7 +124,7 @@ const SurveyResult = () => {
                             <Tab.Panels>
                                 <Tab.Panel>
                                     <br />
-                                    <SurveyResults svyType={surveyType} resPeople={data.length} maxResPeople={data.svyRespsMax} resContents={Object.values(data)} />
+                                    <SurveyResults svyType={surveyType} resPeople={data.svyRespCount} maxResPeople={data.svyRespMax} resContents={data} />
                                 </Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
@@ -166,14 +166,14 @@ const SurveyResult = () => {
                             <Tab.Panels>
                                 <Tab.Panel>
                                     {(surveyType === "basic") ?
-                                        <SurveyAnalysis resPeople={data.length} maxResPeople={data.svyRespsMax} resContents={Object.values(data)} />
+                                        <SurveyAnalysis resPeople={data.svyRespCount} maxResPeople={data.svyRespMax} resContents={Object.values(data)} />
                                         :
                                         <Conversation cvId = {router.query.svyId}/>
                                     }
                                 </Tab.Panel>
                                 <Tab.Panel>
                                     <br />
-                                    <SurveyResults svyType={surveyType} resPeople={data.length} maxResPeople={data.svyRespsMax} resContents={Object.values(data)} />
+                                    <SurveyResults svyType={surveyType} resPeople={data.svyRespCount} maxResPeople={data.svyRespMax} resContents={Object.values(data)} />
                                 </Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
