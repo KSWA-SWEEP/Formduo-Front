@@ -45,7 +45,7 @@ export default function Conversation(props) {
             setAcctoken(r)
             try{
                 let resData = new Object();
-                const response = await fetch('/api/response/' + props.cvId, {
+                const response = await fetch('/api/response/all/'+ props.cvId, {
                     method: 'GET',
                     headers: {
                         'Content-type': 'application/json',
