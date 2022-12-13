@@ -46,6 +46,7 @@ export default function App({
     <>
       <Head>
         <title>폼듀(Form Duo)</title>
+        <link rel="icon" href="/favicon.ico"/>
         <meta name="description" content="간편하고, 새로운 차원의 설문플랫폼 폼듀입니다." />
         <meta name="naver-site-verification" content="42b5d378293c7ca1532d675450e41b442bc28f5d" />
         <meta name="google-site-verification" content="fZfLUCgFmi1qQTxTes7b93Bidrfrd2Doa8LZp5HqTZI" />
