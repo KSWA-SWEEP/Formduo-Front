@@ -46,7 +46,7 @@ export default function SurveyPreview(props) {
             {/* 질문 목록 */}
             <ShowQuestionList svyContents={svyContents} svyRespContents={svyRespContents} setSvyRespContents={setSvyRespContents} isModify={props.isModify} />
 
-            <div className="flex justify-center mx-2 rounded-md m-7 ">
+            {/* <div className="flex justify-center mx-2 rounded-md m-7 ">
                 <a onClick={() => router.push({
                     pathname: preURL
                 })}
@@ -54,7 +54,7 @@ export default function SurveyPreview(props) {
                 >
                     뒤로가기
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 };
