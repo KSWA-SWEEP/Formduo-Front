@@ -391,9 +391,6 @@ npm start
 ## 🔥 Features
 
 ### 🎤 음성 설문 (Duo Survey)
-
-- **음성 녹음**
-  <br/>
   폼듀는 새로운 형식의 설문인 **음성 설문** 기능을 제공합니다. `react-audio-player` 라이브러리를 사용하여 음성 녹음 및 재생 기능을 구현하였으며, 음성 녹음을 완료하면 본인이 답변한 응답을 다시 확인해볼 수 있습니다.
   ![image](https://user-images.githubusercontent.com/64126621/222958945-47bdf1be-3a6d-477f-b3bf-b0dc865a424c.png)
   개인정보 보호를 위해 첫 음성 설문 참여 시 팝업을 통해 권한을 요청합니다.
@@ -401,8 +398,7 @@ npm start
 
 <br/>
 
-- **Q Box**
-  <br/>
+### ❔ Q Box (자주하는 질문 & 이전에 했던 질문)
   간편하고 빠른 설문 제작을 위해 폼듀는 Q-Box 기능을 제공합니다. Q-Box에서는 사용자들이 자주 하는 질문 및 사용자가 이전 설문에서 만들었던 질문 목록을 확인할 수 있으며, 설문에 바로 추가한 후 보기 및 질문을 자유롭게 수정할 수 있습니다.
   ![image](https://user-images.githubusercontent.com/64126621/222959127-c5993fb0-f2da-4525-b9a5-8b20b42339d5.png)
   ![image](https://user-images.githubusercontent.com/64126621/222959145-2381bf20-eab5-4ad6-b4d2-081fb8082ad9.png)
